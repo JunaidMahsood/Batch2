@@ -1,38 +1,16 @@
 let timerInterval;
 
 function validateLogin() {
-    const usernameInput = document.getElementById('username').value.trim().toLowerCase();
-    const contactInput = document.getElementById('contact').value.trim();
-
-    const matchedUser = registeredUsers.find(user =>
-        user.name.toLowerCase() === usernameInput && user.contact === contactInput
-    );
-
-    if (!matchedUser) {
-        document.getElementById('login-error').textContent = "Invalid name or contact.";
-        return;
-    }
-
-    const meta = JSON.parse(localStorage.getItem('mcqMeta'));
-    const currentTestId = meta?.testId;
-    const allResults = JSON.parse(localStorage.getItem('userResults')) || [];
-
-    const alreadyAttempted = allResults.find(result =>
-        result.name.toLowerCase() === usernameInput &&
-        result.contact === contactInput &&
-        result.testId === currentTestId
-    );
-
-    if (alreadyAttempted) {
-        document.getElementById('login-error').textContent = "You've already taken this test. Please wait for the next one.";
-        return;
-    }
+    // Skip validation entirely and store placeholder user
+    const username = document.getElementById('username').value.trim() || "Guest";
+    const contact = document.getElementById('contact').value.trim() || "0000000000";
 
     localStorage.setItem('currentUser', JSON.stringify({
-        name: matchedUser.name,
-        contact: matchedUser.contact
+        name: username,
+        contact: contact
     }));
 
+    // Directly start quiz
     startQuiz();
 }
 
