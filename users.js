@@ -336,7 +336,7 @@ const registeredUsers= [
     contact: "03358065707"
   },
   {
-    name: "Sana Ahmad ",
+    name: "SanaAhmad ",
     contact: "03157771710"
   },
   {
