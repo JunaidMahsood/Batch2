@@ -2,7 +2,6 @@
     const quizText = `
 [TIMER: 80]
 
-
 1.The revolt of 1857 started first at__________________
 *A. Meeruth
 B. Delhi
